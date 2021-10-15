@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import PasswordStrengthBar from 'react-password-strength-bar';
+ 
 function App() {
+  const [password, setPassword] = useState('');
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <h3>Password Strength</h3>
+      
+      <div className="pwd-container">
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <PasswordStrengthBar password={password} />
+      </div>
     </div>
   );
 }
-
+ 
 export default App;
